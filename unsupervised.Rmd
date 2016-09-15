@@ -38,6 +38,22 @@ points(x,col=which,pch=19)
 points(x,col=c(4,3,2,1)[which],pch=19)
 ```
 
+Hierarchical Clustering
+=======================
+We will use these same data and use hierarchical clustering
+
+```{r}
+hc.complete=hclust(dist(x),method="complete")
+plot(hc.complete)
+hc.single=hclust(dist(x),method="single")
+plot(hc.single)
+hc.average=hclust(dist(x),method="average")
+plot(hc.average)
+
+```
+Lets compare this with the actualy clusters in the data. We will use the function `cutree` to cut the tree at level 4.
+This will produce a vector of numbers from 1 to 4, saying which branch each observation is on. You will sometimes see pretty plots where the leaves of the dendrogram are colored. I searched a bit on the web for how to do this, and its a little too complicated for this demonstration.
+
 
  
 
